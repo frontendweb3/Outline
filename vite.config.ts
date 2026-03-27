@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
           // Important: Filter what goes into the final zip
           filter: (fileName, filePath) => {
               // Include compiled assets from dist
-              if (filePath.includes('assets/dist')) return true;
+              if (filePath.includes('assets/dist') || fileName === 'assets') return true
               // Include hbs templates
               if (fileName.endsWith('.hbs')) return true;
               // Include partials folder
