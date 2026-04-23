@@ -48,7 +48,8 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       rollupOptions: {
         input: {
-          main: 'assets/js/main.js'
+          main: 'assets/js/main.js',
+          post: 'assets/js/post.js'
         },
         output: {
           entryFileNames: 'js/[name].js',
