@@ -4,6 +4,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";  /*  Add the custom font to the project */
 @import "./shadcn-variables.css";
+@import "./post.css";
 
 /* Add file to watch for changes in tailwind css */
 @source '../**/*.hbs';
