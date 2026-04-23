@@ -9,7 +9,6 @@ import './icons.js';   // Initialize Lucide icons
 import.meta.glob('../images/**/*.{png,jpg,jpeg,svg,webp,avif}', { eager: true });
 
 // Toggle dark mode based on user preference or system settings with local storage support and icon toggling using Tailwind CSS classes and JavaScript event listeners.
-
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
