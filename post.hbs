@@ -5,12 +5,12 @@
 <article class="pt-16 pb-24 px-4 md:px-8 max-w-7xl mx-auto w-full">
     <header class="max-w-3xl mx-auto text-center mb-12">
         {{#if primary_tag}}
-            {{#primary_tag}}
-                <a href="{{url}}"
-                    class="inline-block text-indigo-600 dark:text-indigo-400 px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-sm font-semibold tracking-wide uppercase mb-6 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors">
-                    # {{name}}
-                </a>
-            {{/primary_tag}}
+        {{#primary_tag}}
+        <a href="{{url}}"
+            class="inline-block text-indigo-600 dark:text-indigo-400 px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-sm font-semibold tracking-wide uppercase mb-6 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors">
+            # {{name}}
+        </a>
+        {{/primary_tag}}
         {{/if}}
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-8">
@@ -41,19 +41,20 @@
     </header>
 
     {{#if feature_image}}
-        <div class="max-w-5xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
-            <img class="w-full h-auto object-cover max-h-150" srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
-                feature_image size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl"
-                }} 2000w" sizes="(max-width: 1000px) 100vw, 1000px" src="{{img_url feature_image size=" l"}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
-        </div>
+    <div class="max-w-5xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
+        <img class="w-full h-auto object-cover max-h-150" srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
+            feature_image size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl"
+            }} 2000w" sizes="(max-width: 1000px) 100vw, 1000px" src="{{img_url feature_image size=" l"}}"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+    </div>
     {{/if}}
 
     <div
         class="prose prose-lg md:prose-xl prose-slate dark:prose-invert mx-auto max-w-3xl prose-pre:p-0 prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 hover:prose-a:text-indigo-500">
         {{content}}
     </div>
-{{!-- share --}}
+    
+    {{!-- share --}}
     <section class="py-10 w-full">
         <div class="rounded-2xl bg-card p-6 md:p-8">
             <div class="flex flex-col gap-6 md:flex-row md:items-center justify-between">
@@ -63,29 +64,29 @@
                 </div>
                 <div class="flex flex-wrap items-center gap-5">
 
-                        <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
-                            class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                            target="_blank">Twitter</a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                            class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                            target="_blank">Facebook</a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?text={{encode title}} {{url absolute="true"}}" 
-                            class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                            target="_blank">Linkedin</a>
+                    <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute=" true"}}"
+                        class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                        target="_blank">Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute=" true"}}"
+                        class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                        target="_blank">Facebook</a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?text={{encode title}} {{url absolute="
+                        true"}}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                        target="_blank">Linkedin</a>
 
-                        <a href="#/share" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                            {{> "components/icon" name="share2" id="share-icon" ariaLabel="Share icon"}}
-                        </a>
-                        
+                    <a href="#/share" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                        {{> "components/icon" name="share2" id="share-icon" ariaLabel="Share icon"}}
+                    </a>
+
                 </div>
             </div>
         </div>
     </section>
 
+    {{#if comments}}
     <div class="bg-card max-w-4xl mx-auto mb-20 p-20 rounded-2xl">
-        {{#if comments}}
-            {{comments}}
-        {{/if}}
+        {{comments}}
     </div>
+    {{/if}}
 </article>
 {{/post}}
