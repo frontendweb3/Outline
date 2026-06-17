@@ -1,21 +1,36 @@
 {{!< default}}
 
 <section class="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-24">
-    <header class="mb-16 border-b border-border pb-12">
+
+    <header class="mb-12">
         {{#tag}}
-            <h1 class="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl mb-4">{{name}}</h1>
-            <p class="text-xl  max-w-2xl leading-relaxed">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">{{name}}</h1>
+            <p class="text-lg text-muted-foreground max-w-2xl leading-relaxed">
                 {{#if description}}
                     {{description}}
                 {{else}}
-                    A collection of {{plural ../pagination.total empty='zero posts' uint='one post' other='% posts'}}
+                    A collection of {{plural ../pagination.total empty='zero tutorials' single='one tutorial' plural='% tutorials'}}
                 {{/if}}
             </p>
-           
         {{/tag}}
     </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <nav class="flex flex-wrap items-center gap-2 mb-12 pb-4 border-b border-border">
+        <a href="{{@site.url}}/tutorials" class="text-sm font-semibold px-3 py-1.5 rounded-full bg-muted text-muted-foreground hover:bg-foreground hover:text-background transition-colors">
+            All tutorials
+        </a>
+        {{#get "tags" limit="50" include="count.posts"}}
+            {{#foreach tags}}
+                {{#if count.posts}}
+                    <a href="{{url}}" class="text-sm font-medium px-3 py-1.5 rounded-full transition-colors {{#if slug}}{{#match ../tag.slug slug}}bg-foreground text-background{{else}}bg-muted text-muted-foreground hover:bg-foreground hover:text-background{{/match}}{{/if}}">
+                        {{name}}
+                    </a>
+                {{/if}}
+            {{/foreach}}
+        {{/get}}
+    </nav>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {{#foreach posts}}
             {{> "card"}}
         {{/foreach}}
@@ -24,4 +39,5 @@
     <div class="mt-16 flex justify-center">
         {{pagination}}
     </div>
+
 </section>

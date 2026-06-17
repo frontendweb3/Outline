@@ -1,8 +1,8 @@
 
-<div class="ring-foreground/10 bg-card text-card-foreground gap-4 overflow-hidden rounded-lg py-4 text-sm ring-1 px-4 group flex flex-col relative">
+<article class="bg-card text-card-foreground overflow-hidden rounded-xl ring-1 ring-border group flex flex-col relative transition-all duration-300 hover:ring-foreground/20 hover:shadow-lg hover:-translate-y-0.5">
     
     {{#if feature_image}}
-    <div class="aspect-video overflow-hidden">
+    <div class="aspect-video overflow-hidden relative bg-muted">
         <img 
             class="object-cover w-full h-full transform transition duration-500 group-hover:scale-105"
             srcset="{{img_url feature_image size="s"}} 300w,
@@ -14,35 +14,42 @@
             alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
             loading="lazy"
         />
+
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <svg class="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </div>
+        </div>
+
+        <span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-white text-xs font-medium px-2 py-0.5 rounded-md">
+            {{reading_time minute="1" minutes="2+"}}
+        </span>
     </div>
     {{/if}}
 
-    <div class="flex flex-col gap-3">
-        <div class="flex items-center gap-3 text-sm font-medium">
-            {{#primary_tag}}
-                <span class="text-indigo-600 dark:text-indigo-400 px-2.5 py-0.5 bg-indigo-50 dark:bg-indigo-900/30 rounded-none">{{name}}</span>
-            {{/primary_tag}}
-            <span class="text-muted-foreground font-normal">
-                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
-                <span class="mx-1.5">&bull;</span>
-                {{reading_time}}
-            </span>
+    <div class="flex flex-col gap-2.5 p-4">
+        <div class="flex flex-wrap items-center gap-1.5">
+            {{#foreach tags limit="3"}}
+                <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{{name}}</span>
+            {{/foreach}}
         </div>
-        {{!--  class="block after:absolute after:inset-0" --}}
-        <a href="{{url}}">
-            <h2 class="text-2xl font-bold leading-tight tracking-tight text-foreground group-hover:text-muted-foreground transition-colors">
+
+        <a href="{{url}}" class="block">
+            <h2 class="text-base font-bold leading-snug tracking-tight text-foreground group-hover:text-muted-foreground transition-colors line-clamp-2">
                 {{title}}
             </h2>
         </a>
-        <p class="text-muted-foreground font-bold line-clamp-2 leading-relaxed">
-            {{excerpt words="30"}}
-        </p>
 
-        <div class="flex items-center gap-2.5 mt-1">
-             {{#foreach authors}}
-                <span class="text-sm font-medium">   {{#if @first}} Published by {{/if}}  {{name}}</span>
-            {{/foreach}}
+        <div class="mt-auto flex items-center gap-3">
+            <a href="{{url}}" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline underline-offset-2">
+                Watch it
+            </a>
+            {{#has tag="hash/pro"}}
+                <span class="ml-auto text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">Free + PRO</span>
+            {{/has}}
         </div>
     </div>
     
-</div>
+</article>

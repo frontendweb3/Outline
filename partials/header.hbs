@@ -1,32 +1,30 @@
-<header class="py-6 shadow- border-b border-border px-4 md:px-8  mx-auto w-full">
+<header class="py-4 border-b border-border px-4 md:px-8 w-full">
     <nav class="flex max-w-7xl items-center justify-between mx-auto">
         <div class="flex items-center">
-            <a class="text-2xl font-bold tracking-tight" href="{{@site.url}}">
+            <a class="text-xl font-bold tracking-tight" href="{{@site.url}}">
                 {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" class="h-8 w-auto dark:invert" />
+                    <img src="{{@site.logo}}" alt="{{@site.title}}" class="h-7 w-auto dark:invert" />
                 {{else}}
                     {{@site.title}}
                 {{/if}}
             </a>
         </div>
-        <div class="hidden md:block">
+        <div class="hidden md:flex items-center">
             {{navigation}}
         </div>
-        <div class="flex items-center gap-4">
-            
-            {{#> "components/button" id="theme-toggle" variant="icon" size="icon-full" ariaLabel="Toggle dark mode"}}
-                {{> "components/icon" name="sun" id="theme-toggle-dark-icon" class="hidden " ariaLabel="Sun icon"}}
-                {{> "components/icon" name="moon" id="theme-toggle-light-icon" class="hidden " ariaLabel="Moon icon"}}             
+        <div class="flex items-center gap-3">
+            {{#> "components/button" href="#/portal/signup" size="sm" variant="secondary" ariaLabel="Subscribe us"}}
+                Subscribe
             {{/ "components/button"}}
 
-            {{#> "components/button" dataGhostSearch=true id="search-toggle" variant="icon" size="icon-full" ariaLabel="Toggle search"}}
+            {{#> "components/button" id="theme-toggle" variant="ghost" size="icon" ariaLabel="Toggle dark mode"}}
+                {{> "components/icon" name="sun" id="theme-toggle-dark-icon" class="hidden size-4" ariaLabel="Sun icon"}}
+                {{> "components/icon" name="moon" id="theme-toggle-light-icon" class="hidden size-4" ariaLabel="Moon icon"}}             
+            {{/ "components/button"}}
+
+            {{#> "components/button" dataGhostSearch=true id="search-toggle" variant="ghost" size="icon" ariaLabel="Toggle search"}}
                  {{> "components/icon" name="search" id="search-icon" ariaLabel="Search icon"}}
             {{/ "components/button"}}
-
-            {{#> "components/button" href="#/portal/signup" size="lg" variant="secondary" ariaLabel="Subscribe us"}}
-                {{> "components/icon" name="user-round" id="user" ariaLabel="Subscribe us"}} Subscribe
-            {{/ "components/button"}}
-                
         </div>
     </nav>
 </header>

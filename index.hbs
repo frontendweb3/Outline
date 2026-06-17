@@ -1,14 +1,38 @@
-{{!< default}}
+{{!< default}} <section class="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-24">
 
-<section class="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-24">
-  
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <header class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Tutorials</h1>
+        <p class="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            I create many tutorials for free on YouTube. This page is where I collect them all, gather the code for
+            them, as well as write most of the videos in article form too.
+        </p>
+    </header>
+
+    <nav class="-ml-4 my-12 flex items-start gap-3 overflow-auto rounded-2xl bg-black px-4 py-3 backdrop-blur-xs md:gap-4">
+        <a href="{{@site.url}}/tutorials"
+            class="text-sm font-semibold px-3 py-1.5 rounded-full bg-foreground text-background transition-colors">
+            All tutorials
+        </a>
+        {{#get "tags" limit="5" include="count.posts" }}
+            {{#foreach tags}}
+            <a href="/tutorials"
+                class="group text-md relative block rounded-xs border border-neutral-800 px-4 py-3 font-medium text-neutral-200 transition-colors md:text-lg hover:bg-neutral-800 focus-visible:bg-neutral-800">
+                {{name}}
+            </a>
+            {{/foreach}}
+        {{/get}}
+    </nav>
+
+
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {{#foreach posts}}
-            {{> "card"}}
+        {{> "card"}}
         {{/foreach}}
     </div>
 
     <div class="mt-16 flex justify-center">
         {{pagination}}
     </div>
-</section>
+
+    </section>

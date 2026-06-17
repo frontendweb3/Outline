@@ -2,17 +2,16 @@
     <ul class="flex items-center gap-6 list-none p-0 m-0">
         {{#foreach navigation}}
             <li>
-                <a href="{{url absolute="true"}}" class="text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">{{label}}</a>
+                <a href="{{url absolute="true"}}" class="text-sm text-muted-foreground hover:text-foreground transition-colors">{{label}}</a>
             </li>
         {{/foreach}}
     </ul>
 {{else}}
-    <ul class="flex items-center gap-8 list-none p-0 m-0">
+    <ul class="flex items-center gap-1 list-none p-0 m-0">
         {{#foreach navigation}}
-            <li class="group">
-                  {{#link href=(url absolute="true") class="text-sm font-semibold hover:underline underline-offset-4 hover:text-indigo-600  dark:hover:text-indigo-400 transition-colors" activeClass="text-indigo-600 dark:text-indigo-400"}} {{label}} {{/link}} 
+            <li>
+                {{#link href=(url absolute="true") class="text-sm font-medium px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" activeClass="text-foreground bg-muted"}} {{label}} {{/link}} 
             </li>
         {{/foreach}}
     </ul>
 {{/if}}
-
