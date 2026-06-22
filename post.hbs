@@ -1,91 +1,137 @@
-{{!< default}} 
+{{!< default}}
 
-{{#post}} 
+{{#post}}
 
-<article class="pt-16 pb-24 px-4 md:px-8 max-w-7xl mx-auto w-full">
-    <header class="max-w-3xl mx-auto text-center mb-12">
-        {{#if primary_tag}}
-        {{#primary_tag}}
-        <a href="{{url}}"
-            class="inline-block text-indigo-600 dark:text-indigo-400 px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-sm font-semibold tracking-wide uppercase mb-6 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors">
-            # {{name}}
-        </a>
-        {{/primary_tag}}
-        {{/if}}
+<article class="w-full">
+  <section class="mx-auto max-w-324 px-4 md:px-12 lg:px-16 xl:px-20 2xl:px-0">
+    <div class="mx-auto max-w-5xl pt-24 pb-16">
+      {{#if primary_tag}}
+      {{#primary_tag}}
+      <a href="{{url}}" class="mb-6 inline-block rounded-full border border-zinc-700 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-zinc-400 transition-colors hover:border-violet-700 hover:text-violet-400">
+        {{name}}
+      </a>
+      {{/primary_tag}}
+      {{/if}}
 
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-8">
-            {{title}}
-        </h1>
+      <h1 class="text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
+        {{title}}
+      </h1>
 
-        <div class="flex items-center mx-auto justify-center gap-4  font-medium">
-            <div class="flex items-center gap-3 text-left">
-                {{#foreach authors}}
-                <div class="group flex flex-row items-center gap-3">
-                    {{#if profile_image}}
-                    <img src="{{img_url profile_image size=" xs"}}" alt="{{name}}"
-                        class="w-10 h-10 rounded-full border border-border object-cover" />
-                    {{else}}
-                    <div
-                        class="w-11 h-11 cursor-none rounded-full p-4 border border-border bg-secondary flex items-center justify-center text-xs font-medium text-secondary-foreground">
-                        {{name}}
-                    </div>
-                    {{/if}}
-                    <div class="flex flex-col text-xs p-2 gap-1">
-                        <a href="{{url}}" class="font-semibold">{{name}}</a>
-                        <time datetime="{{date ../published_at format=" YYYY-MM-DD"}}"> {{date ../published_at format="DD MMMM YYYY"}}</time>
-                    </div>
-                </div>
-                {{/foreach}}
-            </div>
-    </header>
-
-    {{#if feature_image}}
-    <div class="max-w-5xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
-        <img class="w-full h-auto object-cover max-h-150" srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
-            feature_image size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl"
-            }} 2000w" sizes="(max-width: 1000px) 100vw, 1000px" src="{{img_url feature_image size=" l"}}"
-            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
-    </div>
-    {{/if}}
-
-    <div
-        class="prose prose-lg md:prose-xl prose-slate dark:prose-invert mx-auto max-w-3xl prose-pre:p-0 prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 hover:prose-a:text-indigo-500">
-        {{content}}
-    </div>
-    
-    {{!-- share --}}
-    <section class="py-10 w-full">
-        <div class="rounded-2xl bg-card p-6 md:p-8">
-            <div class="flex flex-col gap-6 md:flex-row md:items-center justify-between">
-                <div>
-                    <h3 class="text-xl font-bold tracking-tight">Share this post</h3>
-                    <p class="text-sm text-muted-foreground mt-1">Enjoyed it? Share it with your network.</p>
-                </div>
-                <div class="flex flex-wrap items-center gap-5">
-
-                    <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute=" true"}}"
-                        class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                        target="_blank">Twitter</a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute=" true"}}"
-                        class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                        target="_blank">Facebook</a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?text={{encode title}} {{url absolute="
-                        true"}}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                        target="_blank">Linkedin</a>
-
-                    <a href="#/share" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                        {{> "components/icon" name="share2" id="share-icon" ariaLabel="Share icon"}}
-                    </a>
-
-                </div>
-            </div>
+      {{#if custom_excerpt}}
+      <p class="mt-6 text-xl text-zinc-400">{{custom_excerpt}}</p>
+      {{/if}}
+      <div class="flex flex-row justify-between items-center">
+      <div class="mt-8 flex items-center gap-4">
+        <div class="flex -space-x-2">
+          {{#foreach authors}}
+          {{#if profile_image}}
+          <img src="{{img_url profile_image size="xs"}}" alt="{{name}}" class="size-10 rounded-full object-cover ring-2 ring-background" />
+          {{else}}
+          <div class="flex size-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-xs font-medium text-zinc-400 ring-2 ring-background">
+            <a href="{{url}}">{{name}}</a>
+          </div>
+          {{/if}}
+          {{/foreach}}
         </div>
-    </section>
-
-    {{#if comments}}
-    <div class="bg-card max-w-4xl mx-auto mb-20 p-20 rounded-2xl">
-        {{comments}}
+        <div class="flex flex-col text-sm">
+          <span class="font-medium text-white">
+            {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{#if @last}}{{else}}, {{/if}}{{/foreach}}
+          </span>
+          <span class="text-zinc-500">
+            <time datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="DD MMMM YYYY"}}</time>
+            &middot; <span>{{reading_time minute="1 min" minutes="% min"}}</span>
+          </span>
+        </div>
+      </div>
+      <a href="#/share" class="text-zinc-400 group transition-colors hover:text-violet-400">
+        {{> "components/icon" name="share" class="h-4 w-4 transition-transform duration-300 group-hover:scale-110 group-focus-visible:scale-110"}}
+      </a>
     </div>
-    {{/if}}
+  </section>
+
+  {{#if feature_image}}
+  <div class="mx-auto hidden max-w-5xl px-4 md:px-12 lg:px-16 2xl:px-0">
+    <div class="overflow-hidden rounded-3xl shadow-lg">
+      <img class="w-full" srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w, {{img_url feature_image size="xl"}} 2000w"
+        sizes="(max-width: 1000px) 100vw, 1000px" src="{{img_url feature_image size="l"}}"
+        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+    </div>
+  </div>
+  {{/if}}
+
+  <div class="mx-auto max-w-7xl px-4 md:px-12 lg:px-16 2xl:px-0">
+    <div class="prose prose-lg prose-invert mx-auto mb-16 max-w-3xl prose-headings:font-bold prose-a:text-(--ghost-accent-color) hover:prose-a:opacity-90 prose-code:rounded prose-code:bg-zinc-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-pre:border prose-pre:border-zinc-800 prose-pre:bg-zinc-950">
+      {{content}}
+    </div>
+  </div>
+
+  <section class="mx-auto max-w-7xl px-4 py-2.5 md:px-12 mt-28 border-y border-zinc-800 lg:px-16 2xl:px-0">
+    <div class="flex flex-col items-start justify-between gap-6 p-6 md:flex-row md:items-center md:p-8">
+      <div>
+        <h3 class="text-xl font-bold">Share this post</h3>
+        <p class="mt-1 text-sm text-zinc-500">Enjoyed it? Share it with your network.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}" class="text-zinc-400 transition-colors hover:text-violet-400" target="_blank" rel="noopener">
+          Twitter
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" class="text-zinc-400 transition-colors hover:text-violet-400" target="_blank" rel="noopener">
+          Facebook
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{url absolute="true"}}" class="text-zinc-400 transition-colors hover:text-violet-400" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
+        <a href="mailto:?subject={{encode title}}&amp;body={{url absolute="true"}}" class="text-zinc-400 transition-colors hover:text-violet-400" target="_blank">
+          Mail
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="mx-auto flex w-full max-w-7xl my-32 items-center justify-between gap-6 px-4 py-12 md:px-12 lg:px-16 2xl:px-0">
+    <div class="flex-1">
+      {{#prev_post}}
+      <a href="{{url}}" class="group flex flex-col items-start gap-1">
+        <span class="flex items-center gap-1 text-sm text-zinc-500 transition-colors group-hover:text-violet-400">
+          <i data-lucide="arrow-left" class="size-4 transition-transform duration-300 group-hover:-translate-x-1"></i>
+          Previous
+        </span>
+        <span class="text-lg font-medium text-white transition-colors group-hover:text-violet-400">{{title}}</span>
+      </a>
+      {{/prev_post}}
+    </div>
+    <div class="text-right flex-1">
+      {{#next_post}}
+      <a href="{{url}}" class="group flex flex-col items-end gap-1">
+        <span class="flex items-center gap-1 text-sm text-zinc-500 transition-colors group-hover:text-violet-400">
+          Next
+          <i data-lucide="arrow-right" class="size-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+        </span>
+        <span class="text-lg font-medium text-white transition-colors group-hover:text-violet-400">{{title}}</span>
+      </a>
+      {{/next_post}}
+    </div>
+  </nav>
+
+  {{#if primary_tag}}
+  {{#get "posts" limit="3" include="tags,authors" filter="tags:{{primary_tag.slug}}+id:-{{id}}" as |related|}}
+  {{#if related}}
+  <section class="mx-auto w-full max-w-7xl px-4 pb-24 md:px-12 lg:px-16 2xl:px-0">
+    <h2 class="mb-8 text-2xl font-bold">Related tutorials</h2>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {{#foreach related}}
+      {{> "card"}}
+      {{/foreach}}
+    </div>
+  </section>
+  {{/if}}
+  {{/get}}
+  {{/if}}
+
+  {{#if comments}}
+  <section class="mx-auto max-w-7xl px-4 pb-24 md:px-12 lg:px-16 2xl:px-0">
+      {{comments}}
+  </section>
+  {{/if}}
 </article>
 {{/post}}
