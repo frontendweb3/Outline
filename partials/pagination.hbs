@@ -1,45 +1,11 @@
-{{#match @custom.pagination_style "simple"}}
-{{#match pagination.pages "!=" 1}}
-{{#if prev}}
-  {{#if next}}
-<div class="flex justify-between items-center my-32 px-4 py-8 sm:px-0 w-full gap-4">
-    <a href="{{page_url prev}}"
-        class="group inline-flex items-center bg-[#1a1a1a] text-white font-semibold text-[16px] px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300 no-underline">
-        Previous
-    </a>
-    <a href="{{page_url next}}"
-        class="group inline-flex items-center bg-[#1a1a1a] text-white font-semibold text-[16px] px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300 no-underline">
-        Next
-    </a>
-</div>
-  {{else}}
-<div class="flex justify-center items-center my-32 px-4 py-8 sm:px-0 w-full gap-4">
-    <a href="{{page_url prev}}"
-        class="group inline-flex items-center bg-[#1a1a1a] text-white font-semibold text-[16px] px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300 no-underline">
-        Previous
-    </a>
-</div>
-  {{/if}}
-{{else}}
-  {{#if next}}
-<div class="flex justify-center items-center my-32 px-4 py-8 sm:px-0 w-full gap-4">
-    <a href="{{page_url next}}"
-        class="group inline-flex items-center bg-[#1a1a1a] text-white font-semibold text-[16px] px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300 no-underline">
-        Next
-    </a>
-</div>
-  {{/if}}
-{{/if}}
-{{/match}}
-{{else}}
 <div class="mt-16 flex justify-center">
     {{#match pagination.pages "!=" 1}}
     <nav class="flex items-center my-32 justify-between px-4 py-8 sm:px-0 w-full" role="pagination" aria-label="Pagination Navigation">
         <div class="flex flex-1 w-0">
             {{#if prev}}
             <a href="{{page_url prev}}"
-                class="group inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium hover:border-indigo-500 dark:hover:border-indigo-400 hover:text-gray-700 dark:hover:text-white transition-all">
-                {{> "components/icon" class="mr-2 h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" name="arrow-left" ariaLabel="Previous"}}
+                class="group inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium hover:border-indigo-500 hover:text-white transition-all">
+                {{> "components/icon" class="mr-2 h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1.5" name="arrow-left" ariaLabel="Previous"}}
                 Previous
             </a>
             {{/if}}
@@ -52,13 +18,12 @@
         <div class="flex flex-1 justify-end w-0">
             {{#if next}}
             <a href="{{page_url next}}"
-                class="group inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium hover:border-indigo-500 dark:hover:border-indigo-400 hover:text-gray-700 dark:hover:text-white transition-all">
+                class="group inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium hover:border-indigo-500 hover:text-white transition-all">
                 Next
-                {{> "components/icon" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" name="arrow-right" ariaLabel="Next"}}
+                {{> "components/icon" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" name="arrow-right" ariaLabel="Next"}}
             </a>
             {{/if}}
         </div>
     </nav>
     {{/match}}
 </div>
-{{/match}}

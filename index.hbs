@@ -13,9 +13,10 @@
             {{/foreach}}
         </div>
 
-        
+
+        {{#match @custom.pagination_style "simple"}}
+            {{> "simple-pagination"}}
+        {{else}}
             {{ "pagination"}}
-
-    </section>
-
-   
+        {{/match}}
+</section>

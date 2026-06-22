@@ -10,8 +10,9 @@
         {{/foreach}}
     </div>
 
-    <div class="mt-16 flex justify-center">
-        {{pagination}}
-    </div>
-
+     {{#match @custom.pagination_style "simple"}}
+        {{> "simple-pagination"}}
+        {{else}}
+        {{ "pagination"}}
+    {{/match}}
 </section>
