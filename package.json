@@ -15,11 +15,42 @@
     "start ": "vite",
     "dev": "vite build --watch --mode development",
     "build": "vite build",
-    "test": "pnpm dlx gscan@latest . --v6"
+    "test": "pnpm dlx gscan@latest . --v6",
+    "clean": "rm -rf ./assets/dist"
   },
   "config": {
     "posts_per_page": 10,
-    "card_assets": true
+    "card_assets": true,
+    "custom": {
+      "pagination_style": {
+        "type": "select",
+        "options": ["basic", "simple"],
+        "default": "basic",
+        "description": "Select pagination style for post listings"
+      },
+      "hero_title": {
+        "type": "text",
+        "default": "Tutorials",
+        "group": "homepage",
+        "description": "Custom title text for the hero section on the homepage (overrides site title)"
+      },
+      "card_style": {
+        "type": "select",
+        "options": ["featured", "simple"],
+        "default": "featured",
+        "description": "Select the card style for post listings across index, tag, author, and related posts"
+      },
+      "show_sign_in": {
+        "type": "boolean",
+        "default": true,
+        "description": "Show or hide the Sign In button in the header"
+      },
+      "show_pro": {
+        "type": "boolean",
+        "default": true,
+        "description": "Show or hide the Go PRO button in the header"
+      }
+    }
   },
   "engines": {
     "ghost": ">=6.0.0"
@@ -35,7 +66,9 @@
     "vite-plugin-zip-pack": "^1.2.4"
   },
   "dependencies": {
-    "@fontsource-variable/inter": "^5.2.8",
+    "@alpinejs/collapse": "^3.15.12",
+    "@fontsource/geist-mono": "^5.2.8",
+    "@fontsource/geist-sans": "^5.2.5",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.1",
     "alpinejs": "^3.15.8",
