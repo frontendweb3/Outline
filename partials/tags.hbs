@@ -1,0 +1,14 @@
+<div class="mx-auto max-w-324 pb-20 pt-16 mb-8">
+<nav aria-label="tags" class="-ml-1 pb-5 lg:pb-0 flex items-start gap-8 overflow-auto px-4 backdrop-blur-xs md:gap-6">
+    <a href="{{@site.url}}" class="group shrink-0 text-md relative block rounded-xs border border-neutral-800 px-4 py-2 font-medium transition-colors md:text-lg text-primary bg-white"> All tutorials </a>
+    {{#get "tags" limit="6" include="count.posts"}}
+        {{#foreach tags}}
+            {{#if count.posts}}
+            <a href="{{url}}" class=" shrink-0 group text-md min-w-48 text-center relative block rounded-xs border-[0.5px] border-neutral-800 px-4 py-2 font-medium transition-colors md:text-lg text-neutral-200 hover:bg-neutral-700 hover:text-foreground">
+                {{name}}
+            </a>
+            {{/if}}
+        {{/foreach}}
+    {{/get}}
+</nav>
+</div>
