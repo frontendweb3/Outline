@@ -24,7 +24,10 @@
     "custom": {
       "pagination_style": {
         "type": "select",
-        "options": ["basic", "simple"],
+        "options": [
+          "basic",
+          "simple"
+        ],
         "default": "basic",
         "description": "Select pagination style for post listings"
       },
@@ -36,7 +39,10 @@
       },
       "card_style": {
         "type": "select",
-        "options": ["featured", "simple"],
+        "options": [
+          "featured",
+          "simple"
+        ],
         "default": "featured",
         "description": "Select the card style for post listings across index, tag, author, and related posts"
       },
@@ -66,7 +72,6 @@
     "vite-plugin-zip-pack": "^1.2.4"
   },
   "dependencies": {
-    "@alpinejs/collapse": "^3.15.12",
     "@fontsource/geist-mono": "^5.2.8",
     "@fontsource/geist-sans": "^5.2.5",
     "@tailwindcss/typography": "^0.5.19",

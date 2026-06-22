@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@alpinejs/collapse':
-        specifier: ^3.15.12
-        version: 3.15.12
       '@fontsource/geist-mono':
         specifier: ^5.2.8
         version: 5.2.8
@@ -65,9 +62,6 @@ importers:
         version: 1.2.4(vite@7.3.1(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1))
 
 packages:
-
-  '@alpinejs/collapse@3.15.12':
-    resolution: {integrity: sha512-BKNANLtNXuWYOSAnajSKLPjTsmHRNrv0ALFTbpmqt2/klHFooPhctSwkhFVPQb7rZ8BjEKHmNaBwnSbgtpk6xg==}
 
   '@antfu/ni@25.0.0':
     resolution: {integrity: sha512-9q/yCljni37pkMr4sPrI3G4jqdIk074+iukc5aFJl7kmDCCsiJrbZ6zKxnES1Gwg+i9RcDZwvktl23puGslmvA==}
@@ -2307,8 +2301,6 @@ packages:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
 snapshots:
-
-  '@alpinejs/collapse@3.15.12': {}
 
   '@antfu/ni@25.0.0':
     dependencies:
