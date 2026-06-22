@@ -44,6 +44,20 @@ A modern Ghost CMS theme for blogs, tutorials, documentation, and knowledge-driv
    pnpm build
    ```
 
+## Screenshots
+
+Preview the theme across pages and devices. All screenshots are generated via `pnpm capture`.
+
+| Page | Desktop (1440px) | Tablet (768px) | Mobile (390px) |
+|---|---|---|---|
+| Home | ![home desktop](screenshots/desktop/home.png) | ![home tablet](screenshots/tablet/home.png) | ![home mobile](screenshots/mobile/home.png) |
+| About | ![about desktop](screenshots/desktop/about.png) | ![about tablet](screenshots/tablet/about.png) | ![about mobile](screenshots/mobile/about.png) |
+| Tag (AI) | ![tag-ai desktop](screenshots/desktop/tag-ai.png) | ![tag-ai tablet](screenshots/tablet/tag-ai.png) | ![tag-ai mobile](screenshots/mobile/tag-ai.png) |
+| Author | ![author desktop](screenshots/desktop/author-rajdeep-dev.png) | ![author tablet](screenshots/tablet/author-rajdeep-dev.png) | ![author mobile](screenshots/mobile/author-rajdeep-dev.png) |
+| Post | ![post desktop](screenshots/desktop/post-ebpf.png) | ![post tablet](screenshots/tablet/post-ebpf.png) | ![post mobile](screenshots/mobile/post-ebpf.png) |
+
+> Browse the full gallery: [`screenshots/index.html`](screenshots/index.html)
+
 ## Using with Ghost
 
 - Copy the built theme output into your Ghost installation's `content/themes/<your-theme>/` directory (or symlink it during development).
