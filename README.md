@@ -44,7 +44,8 @@ A modern Ghost CMS theme for blogs, tutorials, documentation, and knowledge-driv
    pnpm build
    ```
 
-## Screenshots
+<details>
+<summary><strong>Screenshots</strong> (click to expand)</summary>
 
 Preview the theme across pages and devices. All screenshots are generated via `pnpm capture`.
 
@@ -56,7 +57,9 @@ Preview the theme across pages and devices. All screenshots are generated via `p
 | Author | ![author desktop](screenshots/desktop/author-rajdeep-dev.png) | ![author tablet](screenshots/tablet/author-rajdeep-dev.png) | ![author mobile](screenshots/mobile/author-rajdeep-dev.png) |
 | Post | ![post desktop](screenshots/desktop/post-ebpf.png) | ![post tablet](screenshots/tablet/post-ebpf.png) | ![post mobile](screenshots/mobile/post-ebpf.png) |
 
-> Browse the full gallery: [`screenshots/index.html`](screenshots/index.html)
+Browse the full gallery: [`screenshots/index.html`](https://refined-github-html-preview.kidonng.workers.dev/frontendweb3/Outline/raw/refs/heads/main/screenshots/index.html)
+
+</details>
 
 ## Using with Ghost
 
@@ -174,7 +177,9 @@ The following plugins are configured in `vite.config.ts`:
 
 - `pnpm dev` — Build in watch mode for development
 - `pnpm build` — Creates a production build and generates the theme ZIP file.
-- `pnpm test` — Tests the Ghost CMS v6 theme using the `gscan` CLI.
+- `pnpm capture` — Captures full-page screenshots of all configured routes across desktop, tablet, and mobile viewports using Playwright
+- `pnpm test` — Tests the Ghost CMS v6 theme using the `gscan` CLI
+- `pnpm clean` — Removes the `assets/dist` build output
 
 ## Licensing
 
