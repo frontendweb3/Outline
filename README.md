@@ -45,7 +45,7 @@ A modern Ghost CMS theme for blogs, tutorials, documentation, and knowledge-driv
    ```
 
 <details>
-<summary><strong>Screenshots</strong> (click to expand)</summary>
+<summary> <h2> Screenshots </h2> (click to expand) </summary>
 
 Preview the theme across pages and devices. All screenshots are generated via `pnpm capture`.
 
