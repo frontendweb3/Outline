@@ -50,6 +50,18 @@ A modern Ghost CMS theme for blogs, tutorials, documentation, and knowledge-driv
 - Restart Ghost so it picks up the new theme, then activate it in the Ghost admin UI.
 - Adjust the `config` values in `package.json` (for example, `posts_per_page` and `card_assets`) to match your design needs.
 
+## Custom Configuration
+
+These settings are defined under `config.custom` in `package.json` and are editable from the Ghost admin panel under **Settings → Theme**.
+
+| Setting | Type | Default | Description |
+|---|---|---|---|
+| `hero_title` | text | `Tutorials` | Custom title for the homepage hero section. Leave empty to use the site title. |
+| `card_style` | select | `featured` | Post listing card style. `featured` — large featured card + grid, `simple` — uniform card grid. |
+| `pagination_style` | select | `basic` | Pagination appearance. `basic` — nav with page numbers and icons, `simple` — Previous/Next buttons only. |
+| `show_sign_in` | boolean | `true` | Show or hide the Sign In button in the site header. |
+| `show_pro` | boolean | `true` | Show or hide the Go PRO button in the site header. |
+
 ## Project Structure
 
 - Templates: `author.hbs`, `default.hbs`, `index.hbs`, `post.hbs`, `page.hbs`, `tag.hbs`, `error-404.hbs`
