@@ -1,17 +1,20 @@
 {{#if isSecondary}}
-    <ul class="flex items-center gap-6 list-none p-0 m-0">
-        {{#foreach navigation}}
-            <li>
-                <a href="{{url absolute="true"}}" class="text-sm text-muted-foreground hover:text-foreground transition-colors">{{label}}</a>
-            </li>
-        {{/foreach}}
-    </ul>
+<ul class="m-0 flex list-none flex-wrap items-center justify-center gap-4 p-0 md:justify-start">
+    {{#foreach navigation}}
+    <li>
+        <a href="{{url absolute=" true"}}"
+            class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">{{label}}</a>
+    </li>
+    {{/foreach}}
+</ul>
 {{else}}
-    <ul class="flex items-center gap-1 list-none p-0 m-0">
-        {{#foreach navigation}}
-            <li>
-                {{#link href=(url absolute="true") class="text-sm font-medium px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" activeClass="text-foreground bg-muted"}} {{label}} {{/link}} 
-            </li>
-        {{/foreach}}
-    </ul>
+
+    {{#foreach navigation}}
+        <li class="group list-none shrink-0">
+            {{#link href=(url absolute="true") class="cursor-pointer md:py-2 text-center md:h-5 md:transition-opacity group-hover:opacity-80 md:duration-300"
+            activeClass="underline underline-offset-4 decoration-primary"}}
+                {{label}}
+            {{/link}}
+        </li>
+    {{/foreach}}
 {{/if}}
