@@ -1,0 +1,37 @@
+<article class="group h-full overflow-clip rounded-sm bg-white/2 transition-colors duration-300 hover:bg-neutral-900">
+    <a class="flex h-full flex-col text-white outline-hidden" href="{{url}}">
+        {{#if feature_image}}
+        <div class="relative aspect-4/3 h-76 w-full rounded-t-sm shadow-lg before:pointer-events-none before:absolute before:-top-4 before:-right-4 before:bottom-4 before:-left-4 before:rounded-t-xl before:bg-neutral-800">
+            <img 
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="{{img_url feature_image size="m"}}"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+            class="relative z-10 h-76 w-full rounded-t-sm object-cover" height="464px" loading="lazy"/>
+                    
+            <span class="text-md pointer-events-none z-10 items-end justify-start absolute bottom-0 right-0 flex">
+                <span class="rounded-md px-3 py-1 font-bold uppercase shadow-lg m-3 bg-black relative z-20">
+                    <span>{{reading_time minute="1 min" minutes="% min"}}</span>
+                </span>
+            </span>
+        </div>
+        {{/if}}
+        <div class="flex h-full flex-col p-8 gap-3.5">
+            {{#if tags}}
+            <div class="mb-1 flex flex-wrap gap-x-4 gap-y-4">
+                {{#foreach tags limit="3"}}
+                <span class="text-md text-neutral-400">{{name}}</span>
+                {{/foreach}}
+            </div>
+            {{/if}}
+            <h2 class="mt-2 mb-5 text-lg font-medium text-balance text-white md:text-xl">{{title}}</h2>
+            <div class="text-primary -mx-4 mt-auto -mb-4 flex items-center gap-2 p-4 group-hover:underline group-hover:underline-offset-4 ">
+                <span class="font-medium">Read More</span>
+                {{> "components/icon" name="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5 group-focus-visible:translate-x-1.5"}}
+            </div>
+        </div>
+    </a>
+</article>

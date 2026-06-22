@@ -1,0 +1,33 @@
+<article class="group h-full overflow-clip rounded-xs bg-white/2 transition-colors duration-300 hover:bg-neutral-900">
+    <a class="flex h-full flex-col text-white outline-hidden" href="{{url}}">
+        
+        {{#if feature_image}}
+        <div class="relative aspect-4/3 h-64 w-full rounded-t-xs shadow-lg before:pointer-events-none before:absolute before:-top-4 before:-right-4 before:bottom-4 before:-left-4 before:rounded-t-xs before:bg-neutral-800">
+            <img 
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="{{img_url feature_image size="m"}}"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+            class="relative z-10 h-64 w-full rounded-t-xs object-cover" height="464px" loading="lazy"/>
+        </div>
+        {{/if}}
+
+        <div class="flex h-full flex-col p-8 gap-3">
+            <div class="flex items-center gap-3">
+                {{#primary_author}}
+                <p class="py-1 shrink-0 text-xs font-bold uppercase tracking-wide text-white"> {{name}} </p>
+                {{/primary_author}}
+                <span class="py-1 shrink-0 text-2xl font-medium uppercase tracking-wide text-white/80">&middot;</span>
+                {{#primary_tag}}
+                <span class="py-1 shrink-0 text-xs font-medium uppercase tracking-wide text-white/80"> {{name}} </span>
+                {{/primary_tag}}
+                <span class="py-1 shrink-0 text-2xl font-medium uppercase tracking-wide text-white/80">&middot;</span>
+                <time datetime="{{date published_at format="YYYY-MM-DD"}}" class="py-1 shrink-0 text-xs font-medium uppercase tracking-wide text-white/80"> {{date published_at format="DD MMM YYYY"}} </time>
+            </div>
+            <h3 class="text-white mt-1.5  text-xl lg:text-2xl serif-font leading-[130%] text-balance font-medium"> {{title}} </h3>
+        </div>
+    </a>
+</article>
