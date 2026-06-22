@@ -1,52 +1,14 @@
-{{!< default}} 
+{{!< default}}
 
-<section class="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-24">
+{{#author}}
+{{> "hero"}}
+{{/author}}
 
-    <div class="mb-16 border-b border-border pb-12 flex flex-col md:flex-row items-center gap-8">
-        
-        {{#author}}
+<section class="mx-auto max-w-324 px-4 md:px-12 lg:px-16 xl:px-20 2xl:px-0">
 
-        {{#if profile_image}}
-        <img class="w-24 h-24 sm:w-42 sm:h-42 rounded-full object-cover shadow-lg border-2 border-border"
-            src="{{img_url profile_image size="s"}}" alt="{{name}}" />
-        {{/if}}
-
-        <div class="items-center sm:items-start text-center sm:text-left flex flex-col gap-4">
-            <h1 class="text-4xl font-extrabold tracking-tight text-black dark:text-white mb-2">{{name}}</h1>
-            {{#if bio}}
-            <p class="text-xl text-black dark:text-white max-w-2xl leading-relaxed mb-4">{{bio}}</p>
-            {{/if}}
-            <div class="flex flex-wrap justify-center sm:justify-start gap-7 text-sm">
-                {{#if website}}
-                <a href="{{website}}"
-                    class="h-5 w-5 text-black dark:text-white  gap-2 hover:text-gray-900 dark:hover:text-white transition-colors  items-center inline-flex justify-center"
-                    target="_blank" rel="noopener" aria-label="Website">
-                 {{> "components/icon" name="globe" id="globe-icon" ariaLabel="Globe icon"}}
-                   
-                </a>
-                {{/if}}
-                {{!-- social media icons --}}
-                {{#social_accounts @site}}
-                <a href="{{href}}" target="_blank" title="follow on {{name}}"
-                    class="h-5 w-5 text-black dark:text-white  gap-2 hover:text-gray-900 dark:hover:text-white transition-colors  items-center inline-flex justify-center"
-                    rel="noopener" aria-label="{{name}}">
-                    {{#> (concat "icons/" type)}}
-                    {{!-- Fallback rendered when no per-platform icon partial exists --}}
-                    <span class="text-xs">{{name}}</span>
-                    {{/undefined}}
-                </a>
-                {{/social_accounts}}
-                
-            </div>
-        </div>
-
-        {{/author}}
-
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {{#foreach posts}}
-        {{> "card"}}
+            {{> "card"}}
         {{/foreach}}
     </div>
 
@@ -54,4 +16,4 @@
         {{pagination}}
     </div>
 
-    </section>
+</section>
