@@ -1,33 +1,64 @@
-{{#match pagination.pages "!=" 1 }}
-
-<nav class="flex items-center justify-between border-t border-border  px-4 py-8 sm:px-0 w-full" role="pagination" aria-label="Pagination Navigation">
-    <div class="flex flex-1 w-0">
-        {{#if prev}}
-            <a href="{{page_url prev}}" class="inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium  hover:border-indigo-500 dark:hover:border-indigo-400 hover:text-gray-700 dark:hover:text-white transition-all">
-                <svg class="mr-3 h-5 w-5 " viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M18 10a.75.75 0 01-.75.75H4.66l2.1 1.95a.75.75 0 11-1.02 1.1l-3.5-3.25a.75.75 0 010-1.1l3.5-3.25a.75.75 0 111.02 1.1l-2.1 1.95h12.59A.75.75 0 0118 10z" clip-rule="evenodd" />
-                </svg>
+{{#match @custom.pagination_style "simple"}}
+{{#match pagination.pages "!=" 1}}
+{{#if prev}}
+  {{#if next}}
+<div class="flex justify-between items-center my-32 px-4 py-8 sm:px-0 w-full gap-4">
+    <a href="{{page_url prev}}"
+        class="group inline-flex items-center bg-[#1a1a1a] text-white font-semibold text-[16px] px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300 no-underline">
+        Previous
+    </a>
+    <a href="{{page_url next}}"
+        class="group inline-flex items-center bg-[#1a1a1a] text-white font-semibold text-[16px] px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300 no-underline">
+        Next
+    </a>
+</div>
+  {{else}}
+<div class="flex justify-center items-center my-32 px-4 py-8 sm:px-0 w-full gap-4">
+    <a href="{{page_url prev}}"
+        class="group inline-flex items-center bg-[#1a1a1a] text-white font-semibold text-[16px] px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300 no-underline">
+        Previous
+    </a>
+</div>
+  {{/if}}
+{{else}}
+  {{#if next}}
+<div class="flex justify-center items-center my-32 px-4 py-8 sm:px-0 w-full gap-4">
+    <a href="{{page_url next}}"
+        class="group inline-flex items-center bg-[#1a1a1a] text-white font-semibold text-[16px] px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300 no-underline">
+        Next
+    </a>
+</div>
+  {{/if}}
+{{/if}}
+{{/match}}
+{{else}}
+<div class="mt-16 flex justify-center">
+    {{#match pagination.pages "!=" 1}}
+    <nav class="flex items-center my-32 justify-between px-4 py-8 sm:px-0 w-full" role="pagination" aria-label="Pagination Navigation">
+        <div class="flex flex-1 w-0">
+            {{#if prev}}
+            <a href="{{page_url prev}}"
+                class="group inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium hover:border-indigo-500 dark:hover:border-indigo-400 hover:text-gray-700 dark:hover:text-white transition-all">
+                {{> "components/icon" class="mr-2 h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" name="arrow-left" ariaLabel="Previous"}}
                 Previous
             </a>
-        {{/if}}
-    </div>
-    
-    <div class="hidden md:flex">
-        <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium ">
-            Page {{page}} of {{pages}}
-        </span>
-    </div>
-
-    <div class="flex flex-1 justify-end w-0">
-        {{#if next}}
-            <a href="{{page_url next}}" class="inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium  hover:border-indigo-500 dark:hover:border-indigo-400 hover:text-gray-700 dark:hover:text-white transition-all">
+            {{/if}}
+        </div>
+        <div class="hidden md:flex">
+            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium">
+                Page {{page}} of {{pages}}
+            </span>
+        </div>
+        <div class="flex flex-1 justify-end w-0">
+            {{#if next}}
+            <a href="{{page_url next}}"
+                class="group inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium hover:border-indigo-500 dark:hover:border-indigo-400 hover:text-gray-700 dark:hover:text-white transition-all">
                 Next
-                <svg class="ml-3 h-5 w-5 " viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z" clip-rule="evenodd" />
-                </svg>
+                {{> "components/icon" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" name="arrow-right" ariaLabel="Next"}}
             </a>
-        {{/if}}
-    </div>
-</nav>
-
+            {{/if}}
+        </div>
+    </nav>
+    {{/match}}
+</div>
 {{/match}}
