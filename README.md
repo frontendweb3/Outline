@@ -74,8 +74,8 @@ These settings are defined under `config.custom` in `package.json` and are edita
 | Setting | Type | Default | Description |
 |---|---|---|---|
 | `hero_title` | text | `Tutorials` | Custom title for the homepage hero section. Leave empty to use the site title. |
-| `card_style` | select | `featured` | Post listing card style. `featured` — large featured card + grid, `simple` — uniform card grid. |
 | `pagination_style` | select | `basic` | Pagination appearance. `basic` — nav with page numbers and icons, `simple` — Previous/Next buttons only. |
+| `card_style` | select | `featured` | Post listing card style. `featured` — large featured card + grid, `simple` — uniform card grid. |
 | `show_sign_in` | boolean | `true` | Show or hide the Sign In button in the site header. |
 | `show_pro` | boolean | `true` | Show or hide the Go PRO button in the site header. |
 
