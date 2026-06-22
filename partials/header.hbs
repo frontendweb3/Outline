@@ -31,14 +31,14 @@
    
       {{!-- Search Button --}}
       <button data-ghost-search="true" id="search-toggle" aria-label="Toggle search"
-        class="shrink-0 p-1.5 cursor-pointer">
-        {{> "icons/search" name="search" id="search-icon" aria-label="Search icon"}}
+        class="shrink-0 cursor-pointer h-4 w-4 duration-300 transition-opacity hover:opacity-80 items-center justify-center inline-flex">
+        {{> "icons/search" name="search"  id="search-icon" aria-label="Search icon"}}
       </button>
 
       {{!-- social media icons --}}
       {{#social_accounts @site}}
       <a href="{{href}}" target="_blank" title="Visit the {{name}} profile"
-        class="hidden h-5 w-5 hover:opacity-80 transition-opacity items-center justify-center lg:inline-flex"
+        class="hidden h-4 w-4 hover:opacity-80 transition-opacity items-center justify-center lg:inline-flex"
         rel="noopener" aria-label="Visit {{name}}'s {{type}} profile">
           {{#> (concat "icons/" type)}}
           {{name}}
@@ -121,16 +121,10 @@
 
     <div class="inline-flex mx-auto my-3 justify-center w-full items-center gap-6">
 
-      {{!-- Search Button --}}
-      <button data-ghost-search="true" id="search-toggle" aria-label="Toggle search"
-        class="shrink-0 p-1.5 cursor-pointer">
-        {{> "icons/search" name="search" id="search-icon" aria-label="Search icon"}}
-      </button>
-
       {{!-- social media icons --}}
       {{#social_accounts @site}}
       <a href="{{href}}" target="_blank" title="Visit the {{name}} profile"
-        class="h-5 w-5 duration-300 transition-opacity hover:opacity-80 items-center justify-center inline-flex"
+        class="h-4 w-4 duration-300 transition-opacity hover:opacity-80 items-center justify-center inline-flex"
         rel="noopener" aria-label="Visit {{name}}'s {{type}} profile">
            {{#> (concat "icons/" type)}}
            {{name}}

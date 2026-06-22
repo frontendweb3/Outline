@@ -43,7 +43,26 @@
                 {{bio}}
             </p>
             {{/if}}
+            <div class="flex items-center gap-4 sm:gap-6 mt-10">
+            {{#if website}}
+                <a href="{{website}}" target="_blank" title="Visit the {{name}} profile"
+                    class="hidden h-4 w-4 hover:opacity-80 transition-opacity items-center justify-center lg:inline-flex"
+                    rel="noopener" aria-label="Visit {{name}}'s {{type}} profile">
+                    {{> "components/icon" name="globe"}}
 
+                </a>
+                {{/if}}
+                {{!-- social media icons --}}
+                {{#social_accounts this}}
+                <a href="{{href}}" target="_blank" title="Visit the {{name}} profile"
+                    class="hidden h-4 w-4 hover:opacity-80 transition-opacity items-center justify-center lg:inline-flex"
+                    rel="noopener" aria-label="Visit {{name}}'s {{type}} profile">
+                    {{#> (concat "icons/" type)}}
+                    {{name}}
+                    {{/undefined}}
+                </a>
+                {{/social_accounts}}
+            </div>
             {{else}}
 
             {{#post}}
